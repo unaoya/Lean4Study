@@ -1,14 +1,96 @@
 #check 1
 #check 1 + 1
 
+#check 2 * 2 = 1 + 3
+
+example : 2 * 2 + 3 = 1 + 3 * 2 := rfl
+
 def y := 1
 #check y
 #print y
-#eval y
+
+-- def a : Nat
 
 def x : Nat := 1
+#check x
+#print x
 
-def h : 1 + 1 = 2 := rfl
+#check Nat
+#print Nat
+
+#check Type
+#check Type 1
+
+def z : Type := Nat
+#check z
+#print z
+
+#check x + y
+
+#check Nat.zero
+#print Nat.zero
+
+#check Nat.succ Nat.zero
+#print Nat.succ
+
+def f : Nat → Nat := fun x ↦ x + 1
+#check f
+#print f
+
+def g (x : Nat) : Nat := x + 1
+#check g
+#print g
+
+#check f 1
+#eval f 1
+
+#check f x
+#eval f x
+
+#check f (g x)
+#eval f (g x)
+
+-- #check f g x
+
+def h (x : Nat) : Nat := f (g x)
+
+#check h
+
+def f_eq_g : f = g := rfl
+
+def f_eq_g2 : f = g := asdfg
+
+theorem f_eq_g3 : f = g := rfl
+
+#check f
+#check f = g
+#check f_eq_g
+#check f_eq_g3
+#check Prop
+#check rfl
+#print rfl
+
+def f_eq_g4 (x : Nat) : f x = g x := rfl
+
+def f_eq_g5 : ∀ x, f x = g x := rfl
+
+def F (x : Nat) : Nat := x + x
+
+def G (x : Nat) : Nat := 2 * x
+
+def H (x : Nat) : Nat := (1 + 1) * x
+
+example : F = G := by
+  funext x
+  rw [F]
+  rw [G]
+  sorry
+
+variable (x : Nat)
+
+example : H = G := rfl
+
+def h1 : 1 + 1 = 2 := rfl
 
 def h2 : 1 = 1 := rfl
 
